@@ -20,13 +20,13 @@ def display_menu() -> None:
     print("\n")
 
 
-def remove_book(library):
+def remove_book(library: Library) -> None:
     """Обрабатывает удаление книги по ID."""
     book_id = check_if_int("Введите ID книги для удаления: ")
     library.remove_book(book_id)
 
 
-def add_book(library):
+def add_book(library: Library) -> None:
     """Обрабатывает добавление новой книги."""
     title = input("Введите название книги: ")
     author = input("Введите автора книги: ")
@@ -34,9 +34,8 @@ def add_book(library):
     library.add_book(title, author, year)
 
 
-def find_books(library):
+def find_books(library: Library) -> None:
     """Обрабатывает поиск книг по ключевому слову."""
-
     while True:
         search_by = input("Искать по (название/автор/год): ").strip().lower()
         if search_by in ("название", "автор", "год"):
@@ -57,14 +56,13 @@ def find_books(library):
         print("Книги не найдены.")
 
 
-def display_books(library):
+def display_books(library: Library) -> None:
     """Обрабатывает отображение всех книг."""
     library.display_books()
 
 
-def update_status(library):
+def update_status(library: Library) -> None:
     """Обрабатывает изменение статуса книги."""
-
     book_id = check_if_int("Введите ID книги для изменения статуса: ")
 
     while True:
