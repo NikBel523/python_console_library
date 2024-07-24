@@ -13,8 +13,8 @@ def check_if_int(prompt: str) -> int:
 
 
 def display_menu() -> None:
-    """Отображает меню библиотеки."""
-    print("\nМеню библиотеки:")
+    """Отображает список команд библиотеки."""
+    print("\nСписок команд библиотеки:")
     for key, value in MENU_OPTIONS.items():
         print(f"{key}. {value}")
     print("\n")
