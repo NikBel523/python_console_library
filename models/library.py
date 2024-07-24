@@ -4,6 +4,7 @@ import os
 from typing import List
 
 from .book import Book
+from constants import AVAILABLE_STATUSES
 
 
 class Library:
@@ -84,10 +85,10 @@ class Library:
         """Изменяет статус книги по ID."""
         book_to_update = next((book for book in self.books if book.id == book_id), None)
         if book_to_update:
-            if new_status in ["в наличии", "выдана"]:
+            if new_status in AVAILABLE_STATUSES:
                 book_to_update.status = new_status
                 self.save_books()
             else:
-                print("Неправильный статус. Доступные статусы: 'в наличии', 'выдана'.")
+                print(f"Неправильный статус. Доступные статусы: {AVAILABLE_STATUSES}.")
         else:
             print(f"Книга с ID {book_id} не найдена.")

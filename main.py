@@ -1,3 +1,4 @@
+from constants import AVAILABLE_STATUSES
 from models.library import Library
 
 
@@ -55,8 +56,14 @@ def display_books(library):
 
 def update_status(library):
     """Обрабатывает изменение статуса книги."""
+
     book_id = check_if_int("Введите ID книги для изменения статуса: ")
-    new_status = input("Введите новый статус ('в наличии' или 'выдана'): ").strip()
+
+    while True:
+        new_status = input(f"Введите новый статус {AVAILABLE_STATUSES}: ").strip()
+        if new_status in AVAILABLE_STATUSES:
+            break
+        print(f"Статус '{new_status}' отсутствует. Список доступных статусов: {AVAILABLE_STATUSES}")
     library.update_status(book_id, new_status)
 
 
