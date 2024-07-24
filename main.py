@@ -1,4 +1,4 @@
-from constants import AVAILABLE_STATUSES
+from constants import AVAILABLE_STATUSES, MENU_OPTIONS
 from models.library import Library
 
 
@@ -10,6 +10,14 @@ def check_if_int(prompt: str) -> int:
             return value
         except ValueError:
             print("Ошибка: Пожалуйста, введите корректное целое число.")
+
+
+def display_menu() -> None:
+    """Отображает меню библиотеки."""
+    print("\nМеню библиотеки:")
+    for key, value in MENU_OPTIONS.items():
+        print(f"{key}. {value}")
+    print("\n")
 
 
 def remove_book(library):
@@ -73,16 +81,9 @@ def main() -> None:
 
     # Главный цикл
     while True:
-        print("\nМеню библиотеки:")
-        print("1. Добавить книгу")
-        print("2. Удалить книгу")
-        print("3. Найти книгу")
-        print("4. Отобразить все книги")
-        print("5. Изменить статус книги")
-        print("6. Выход")
-        print("\n")
+        display_menu()
 
-        choice = input("Выберите действие: ")
+        choice = input("Выберите номер действия : ")
 
         # Обработка выбора действия пользователя
 
